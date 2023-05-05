@@ -9,6 +9,7 @@ jobs:
   verify:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         java: [ '8', '11', '17', '18', '19', '20' ]
         os: [ 'macos-latest', 'ubuntu-latest', 'windows-latest' ]
