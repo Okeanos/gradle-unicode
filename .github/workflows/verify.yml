@@ -1,0 +1,41 @@
+name: Verify
+
+on: [ push, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '8', '11', '17', '18', '19', '20' ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+      - name: Cache artifacts
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: Build with Gradle
+        run: |
+          ./gradlew build -x test
+      - name: Verify results
+        run: |
+          file --brief --mime-encoding gradle.properties
+          file --brief --mime-encoding build/resources/main/target.yml
+
+          if [[ $(grep -cF 'Square²' build/resources/main/target.yml) -ne 2 ]]; then
+            echo "Properties were improperly parsed"
+            exit 1
+          fi
