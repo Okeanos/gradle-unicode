@@ -36,6 +36,7 @@ jobs:
           file --brief --mime-encoding build/resources/main/target.yml
 
           if [[ $(grep -cF 'Square²' build/resources/main/target.yml) -ne 2 ]]; then
-            echo "Properties were improperly parsed"
+            echo "Properties were improperly parsed, expected target to contain 'Square²' twice but got:"
+            cat build/resources/main/target.yml
             exit 1
           fi
