@@ -34,8 +34,8 @@ jobs:
           ./gradlew build -x test
       - name: Verify results
         run: |
-          file --brief --mime-encoding gradle.properties
-          file --brief --mime-encoding build/resources/main/target.yml
+          file --mime-encoding gradle.properties<
+          file --mime-encoding build/resources/main/target.yml
 
           if [[ $(grep -cF 'Square²' build/resources/main/target.yml) -ne 2 ]]; then
             echo "Properties were improperly parsed, expected target to contain 'Square²' twice but got:"
