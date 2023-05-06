@@ -9,3 +9,4 @@ It relates to the following issues:
 
 - [Gradle#19235](https://github.com/gradle/gradle/issues/19235)
 - [Gradle#16763](https://github.com/gradle/gradle/issues/16763)
+- [Gradle#22292](https://github.com/gradle/gradle/issues/22292)
