@@ -52,7 +52,7 @@ echo ""
 
 echo "Gradle Properties for gradle-utf-8"
 pushd ./utf-8 >/dev/null
-/gradlew -Dfile.encoding=UTF-8 --no-daemon --quiet properties | grep "_property"
+./gradlew -Dfile.encoding=UTF-8 --no-daemon --quiet properties | grep "_property"
 popd >/dev/null
 
 echo "Encoding of relevant gradle-utf-8 files"
