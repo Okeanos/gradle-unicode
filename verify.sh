@@ -43,10 +43,10 @@ else
 	echo "::error file=${iso_target}::Emoji wasn't properly processed, was expecting: 🤯"
 fi
 
-echo "gradle-iso-8859-1 source contents:"
-echo "${iso_source}"
-echo "gradle-iso-8859-1 target contents:"
-cat "${iso_target}"
+echo "gradle-iso-8859-1 source contents: ${iso_source}"
+printf "%s" "$(<${iso_source})"
+echo "gradle-iso-8859-1 target contents: ${iso_target}"
+printf "%s" "$(<${iso_target})"
 echo ""
 echo ""
 
@@ -56,27 +56,27 @@ pushd ./utf-8 >/dev/null
 popd >/dev/null
 
 echo "Encoding of relevant gradle-utf-8 files"
-utf_source="utf-8/gradle.properties"
-utf_target="utf-8/build/resources/main/target.yml"
-file --mime-encoding "${utf_source}"
-file --mime-encoding "${utf_target}"
+utf8_source="utf-8/gradle.properties"
+utf8_target="utf-8/build/resources/main/target.yml"
+file --mime-encoding "${utf8_source}"
+file --mime-encoding "${utf8_target}"
 
-if [[ $(grep -cF 'Square²' "${utf_target}") -ne 2 ]]; then
-	echo "::error file=${utf_target}::Properties were improperly parsed, expected target to contain 'Square²' twice"
+if [[ $(grep -cF 'Square²' "${utf8_target}") -ne 2 ]]; then
+	echo "::error file=${utf8_target}::Properties were improperly parsed, expected target to contain 'Square²' twice"
 else
-	echo "::notice file=${utf_target}::Properties were properly parsed"
+	echo "::notice file=${utf8_target}::Properties were properly parsed"
 fi
 
-if [[ $(grep -cF '🤯' "${utf_target}") -eq 1 ]]; then
-	echo "::notice file=${utf_target}::Emoji was properly processed"
+if [[ $(grep -cF '🤯' "${utf8_target}") -eq 1 ]]; then
+	echo "::notice file=${utf8_target}::Emoji was properly processed"
 else
-	echo "::error file=${utf_target}::Emoji wasn't properly processed, was expecting: 🤯"
+	echo "::error file=${utf8_target}::Emoji wasn't properly processed, was expecting: 🤯"
 fi
 
-echo "gradle-utf-8 source contents:"
-cat "${utf_target}"
-echo "gradle-utf-8 file contents:"
-cat "${utf_target}"
+echo "gradle-utf-8 source contents: ${utf8_target}"
+printf "%s" "$(<${utf8_target})"
+echo "gradle-utf-8 file contents: ${utf8_target}"
+printf "%s" "$(<${utf8_target})"
 echo ""
 echo ""
 
@@ -97,5 +97,5 @@ else
 	echo "::error ::Emoji wasn't properly processed, was expecting: 🤯"
 fi
 
-echo "maven file contents:"
-cat "${maven_target}"
+echo "maven file contents: ${maven_target}"
+printf "%s" "$(<${maven_target})"
