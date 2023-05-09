@@ -11,3 +11,8 @@ It relates to the following issues:
 - [Gradle#16763](https://github.com/gradle/gradle/issues/16763)
 - [Gradle#22292](https://github.com/gradle/gradle/issues/22292)
 - [Gradle#2270](https://github.com/gradle/gradle/issues/2270)
+
+Somewhat related other resources:
+
+- [JEP#400](https://openjdk.org/jeps/400) (JDK 18 and above)
+- [JEP#226](https://openjdk.org/jeps/226) (not directly related because it technically only affects Resource Bundles)
