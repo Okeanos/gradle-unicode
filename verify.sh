@@ -75,7 +75,7 @@ fi
 
 echo "gradle-utf-8 source contents: ${utf8_target}"
 printf "%s" "$(<${utf8_target})"
-echo "gradle-utf-8 file contents: ${utf8_target}"
+echo "gradle-utf-8 target contents: ${utf8_target}"
 printf "%s" "$(<${utf8_target})"
 echo ""
 echo ""
@@ -97,5 +97,5 @@ else
 	echo "::error ::Emoji wasn't properly processed, was expecting: 🤯"
 fi
 
-echo "maven file contents: ${maven_target}"
+echo "maven target contents: ${maven_target}"
 printf "%s" "$(<${maven_target})"
