@@ -1,2 +1,3 @@
 escaped_property: "${escaped_property}"
 unicode_property: "${unicode_property}"
+emoji_property: "${emoji_property}"

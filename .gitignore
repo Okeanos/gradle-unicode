@@ -1,6 +1,9 @@
 .gradle
 build/
-!gradle/wrapper/gradle-wrapper.jar
+!iso-8859-1/gradle/wrapper/gradle-wrapper.jar
+!utf-8/gradle/wrapper/gradle-wrapper.jar
+target/
+.mvn/wrapper/maven-wrapper.jar
 
 ### IntelliJ IDEA ###
 .idea
