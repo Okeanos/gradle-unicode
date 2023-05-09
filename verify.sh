@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+echo "Build Project"
 ./gradlew -Dfile.encoding=UTF-8 --quiet clean build -x test
 
+echo "Java default file encoding"
 java -XshowSettings:properties -version 2>&1 | grep file.encoding
+
+echo "Encoding of used files"
 file --mime-encoding gradle.properties
 file --mime-encoding build/resources/main/target.yml
 
