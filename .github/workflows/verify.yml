@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java: [ '8', '11', '17', '18', '19', '20' ]
+        java: [ '8', '11', '17', '18', '19', '20', '21' ]
         os: [ 'macos-latest', 'ubuntu-latest', 'windows-latest' ]
     steps:
       - uses: actions/checkout@v4
