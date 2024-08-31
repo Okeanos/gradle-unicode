@@ -1,5 +1,8 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# https://docs.github.com/en/actions/writing-workflows
 name: Verify
 
+# yamllint disable-line rule:truthy
 on: [ push, workflow_dispatch ]
 
 permissions:

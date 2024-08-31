@@ -1,0 +1,10 @@
+{
+	"exclude": [
+		"gradle-wrapper.properties",
+		"gradlew",
+		"gradlew.bat",
+		"maven-wrapper.properties",
+		"mvnw",
+		"mvnw.cmd"
+	]
+}

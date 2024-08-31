@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 echo "Build Projects"
-pushd ./iso-8859-1 >/dev/null
+pushd ./iso-8859-1 >/dev/null || exit 1
 ./gradlew --no-daemon --quiet clean build -x test
-popd >/dev/null
-pushd ./utf-8 >/dev/null
+popd >/dev/null || exit 1
+pushd ./utf-8 >/dev/null || exit 1
 ./gradlew -Dfile.encoding=UTF-8 --no-daemon --quiet clean build -x test
-popd >/dev/null
-pushd ./maven >/dev/null
+popd >/dev/null || exit 1
+pushd ./maven >/dev/null || exit 1
 ./mvnw --quiet clean resources:resources >./mvn.log
-popd >/dev/null
+popd >/dev/null || exit 1
 
 echo ""
 echo ""
@@ -21,9 +21,9 @@ echo ""
 echo ""
 
 echo "Gradle Properties for gradle-iso-8859-1"
-pushd ./iso-8859-1 >/dev/null
+pushd ./iso-8859-1 >/dev/null || exit 1
 ./gradlew --no-daemon --quiet properties | grep "_property"
-popd >/dev/null
+popd >/dev/null || exit 1
 
 echo "Encoding of relevant gradle-iso-8859-1 files"
 iso_source="iso-8859-1/gradle.properties"
@@ -51,9 +51,9 @@ echo ""
 echo ""
 
 echo "Gradle Properties for gradle-utf-8"
-pushd ./utf-8 >/dev/null
+pushd ./utf-8 >/dev/null || exit 1
 ./gradlew -Dfile.encoding=UTF-8 --no-daemon --quiet properties | grep "_property"
-popd >/dev/null
+popd >/dev/null || exit 1
 
 echo "Encoding of relevant gradle-utf-8 files"
 utf8_source="utf-8/gradle.properties"
