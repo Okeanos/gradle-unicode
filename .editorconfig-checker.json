@@ -1,10 +1,8 @@
 {
 	"exclude": [
-		"gradle-wrapper.properties",
-		"gradlew",
-		"gradlew.bat",
-		"maven-wrapper.properties",
-		"mvnw",
-		"mvnw.cmd"
+		"gradle-wrapper\\.properties",
+		"gradlew(\\.bat)?$",
+		"maven-wrapper\\.properties",
+		"mvnw(\\.cmd)?$"
 	]
 }
